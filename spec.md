@@ -1,10 +1,10 @@
-# Especificação de negócio — Gerenciador de links
+# Especificação do produto — Gerenciador de links
 
 ## Objetivo
 
 Permitir criar e gerenciar links curtos cujo destino possa ser atualizado sem alterar o endereço já compartilhado.
 
-A aplicação será voltada ao uso pessoal e de poucos usuários, com contas criadas pelo Google e baixo volume inicial de acessos externos. Criar e gerenciar links exigirá autenticação e conta ativa; apenas o redirecionamento será público. As tecnologias serão definidas após a validação das regras de negócio.
+A aplicação será voltada ao uso pessoal e de poucos usuários, com contas criadas pelo Google e baixo volume inicial de acessos externos. Criar e gerenciar links exigirá autenticação e conta ativa; apenas o redirecionamento será público. As tecnologias e decisões de implementação da primeira versão estão descritas em [tech-spec.md](tech-spec.md).
 
 ## Conceitos
 
@@ -130,9 +130,9 @@ Cada link terá seu próprio destino. Links que apontem para a mesma URL serão 
 - O cadastro de contas será aberto a qualquer pessoa com conta Google. A criação e o gerenciamento de links exigirão autenticação e conta ativa, com acesso restrito aos próprios links.
 - Não haverá aprovação manual de contas nem fluxos administrativos de suspensão nesta versão.
 - Códigos liberados por troca de endereço, exclusão de link ou exclusão de conta permanecerão reservados permanentemente e não poderão ser atribuídos novamente, mesmo ao proprietário original. Isso evita que endereços já compartilhados passem a apontar para um novo link.
-- Não haverá analytics, expiração, senha por link, domínios por usuário ou compartilhamento de gerenciamento entre usuários nesta versão.
-- A escolha de tecnologias, APIs, mecanismos de cache e infraestrutura ficará para a etapa técnica. O requisito de negócio é que redirecionamentos respeitem as alterações confirmadas.
-- A abertura de contas pelo Google não elimina o risco de uso indevido do serviço; controles operacionais contra abuso deverão ser considerados na etapa de definição técnica.
+- Não haverá analytics, expiração de links, senha por link, domínios por usuário ou compartilhamento de gerenciamento entre usuários nesta versão.
+- O ambiente inicial será local; hospedagem e backups de produção serão definidos posteriormente. Redirecionamentos deverão respeitar as alterações confirmadas, independentemente da infraestrutura.
+- A abertura de contas pelo Google não elimina o risco de uso indevido do serviço; os controles básicos estão descritos em [tech-spec.md](tech-spec.md).
 
 ## Evoluções futuras
 
