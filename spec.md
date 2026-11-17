@@ -1,5 +1,7 @@
 # Especificação do produto — Gerenciador de links
 
+> Nome do projeto: **GerenciaLinks**.
+
 ## Objetivo
 
 Permitir criar e gerenciar links curtos cujo destino possa ser atualizado sem alterar o endereço já compartilhado.

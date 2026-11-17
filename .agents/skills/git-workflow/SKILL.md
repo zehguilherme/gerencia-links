@@ -1,6 +1,6 @@
 ---
 name: git-workflow
-description: Apply this project's commit message rules and human confirmation requirements before any Git operation, including read-only queries and operations through integrations.
+description: Apply this project's commit message rules and human confirmation requirements before state-changing Git operations and operations through integrations.
 ---
 
 # Git Workflow
@@ -17,11 +17,9 @@ Title format: `type(scope)!: description`. The scope and `!` are optional. The b
 - Indicate breaking changes with `!` before `:` or a `BREAKING CHANGE:` footer, followed by a description in English.
 - Example: `docs: define link management business rules`.
 
-## 2. Mandatory Human Confirmation
+## 2. Read-Only Queries and Human Confirmation
 
-- AI agents must not initiate Git operations on their own. Before each operation, present the concrete action and wait for explicit human confirmation to execute it.
-- This requirement includes queries such as `git status`, `git diff`, and `git log`, as well as local and remote operations that modify files, the index, history, branches, or configuration.
-- Apply the same rule to CLIs, graphical interfaces, APIs, MCPs, scripts, and other tools performing Git operations or their equivalents on the repository. Do not bypass the requirement through another mechanism.
-- A general request to implement, review, or fix something does not authorize Git operations. Confirmation must identify the authorized operation or concrete sequence; it does not extend to additional actions.
-- A direct user request for a specific operation counts as human confirmation for that operation. Supporting queries and further operations are not implicitly authorized.
-- Without confirmation, limit work to reading or editing files authorized for the task, preparing suggested commands or messages, and reporting which Git operations await confirmation. Do not modify metadata in `.git` directly.
+- Read-only Git queries, including `git status`, `git diff`, and `git log`, may be run without separate human confirmation.
+- State-changing Git operations require explicit human authorization before execution. A direct user request for a specific operation counts as authorization for that operation; it does not authorize unrelated state changes.
+- Apply these rules to CLIs, graphical interfaces, APIs, MCPs, scripts, and other tools performing Git operations or their equivalents on the repository.
+- Do not modify `.git` metadata directly.

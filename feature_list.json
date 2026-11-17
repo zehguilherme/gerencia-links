@@ -1,0 +1,107 @@
+{
+  "project": "url-shortening",
+  "project_type": "fullstack",
+  "last_updated": "2026-11-17",
+  "rules": {
+    "single_active_feature": true,
+    "passing_requires_evidence": true,
+    "do_not_skip_verification": true
+  },
+  "status_legend": {
+    "not_started": "Implementation has not begun.",
+    "in_progress": "The feature is the current active task.",
+    "blocked": "Work cannot continue until a documented blocker is resolved.",
+    "passing": "Acceptance criteria are implemented, checks passed, and evidence is recorded."
+  },
+  "features": [
+    {
+      "id": "api-001",
+      "type": "api",
+      "area": "auth",
+      "title": "Google sign-in and revocable sessions",
+      "behavior": "Create or find one active application account by Google subject, issue an application session, and revoke sessions on logout or account deletion.",
+      "verification": "After backend setup, verify first and repeat Google sign-in, protected routes, invalid or expired sessions, logout, and account deletion using backend tests.",
+      "status": "not_started",
+      "evidence": ""
+    },
+    {
+      "id": "api-002",
+      "type": "api",
+      "area": "links",
+      "title": "Owner-only link management",
+      "behavior": "Authenticated active users can create, list, inspect, edit, deactivate, reactivate, and delete only their own links.",
+      "verification": "After backend setup, verify CRUD, active-account authorization, and cross-owner isolation with API integration tests.",
+      "status": "not_started",
+      "evidence": ""
+    },
+    {
+      "id": "api-003",
+      "type": "api",
+      "area": "codes",
+      "title": "Unique codes and permanent reservation",
+      "behavior": "Normalize friendly codes, generate unique codes, and permanently reserve codes released by code changes or deletion.",
+      "verification": "After backend setup, verify normalization, collisions including concurrent claims, and non-reuse after link or account deletion.",
+      "status": "not_started",
+      "evidence": ""
+    },
+    {
+      "id": "api-004",
+      "type": "api",
+      "area": "redirects",
+      "title": "Public redirects reflect current link state",
+      "behavior": "Active current codes return a non-cached temporary redirect to the complete validated destination; unavailable codes reveal no owner data.",
+      "verification": "After backend setup, verify active, changed, disabled, deleted, prior, and unknown codes plus destination path, query, fragment, and ignored incoming parameters.",
+      "status": "not_started",
+      "evidence": ""
+    },
+    {
+      "id": "api-005",
+      "type": "api",
+      "area": "account",
+      "title": "Transactional account deletion",
+      "behavior": "Delete the authenticated user's account, links, and sessions atomically while retaining unlinked reserved codes; a failure must not be reported as success.",
+      "verification": "After backend setup, verify successful deletion, session invalidation, retained unlinked codes, and rollback behavior on failure.",
+      "status": "not_started",
+      "evidence": ""
+    },
+    {
+      "id": "ui-001",
+      "type": "ui",
+      "area": "auth",
+      "category": "functional",
+      "description": "A visitor can sign in with Google and see their authenticated link-management area.",
+      "steps": [
+        "Open the application while signed out.",
+        "Start Google sign-in and complete the provider flow.",
+        "Verify the authenticated interface appears and a repeat sign-in uses the same account."
+      ],
+      "passes": false
+    },
+    {
+      "id": "ui-002",
+      "type": "ui",
+      "area": "links",
+      "category": "functional",
+      "description": "An authenticated owner can create and manage links in the dashboard.",
+      "steps": [
+        "Create a link with a valid destination and friendly or generated code.",
+        "Verify its short URL, destination, state, and dates appear in the dashboard.",
+        "Edit its destination, deactivate and reactivate it, and verify each state in the interface."
+      ],
+      "passes": false
+    },
+    {
+      "id": "ui-003",
+      "type": "ui",
+      "area": "confirmations",
+      "category": "functional",
+      "description": "Code changes and destructive actions clearly warn the user and require explicit confirmation.",
+      "steps": [
+        "Start a code change and verify the old address warning appears before confirmation.",
+        "Start link deletion and account deletion, then cancel each and verify data remains unchanged.",
+        "Confirm each action and verify the resulting link or account is unavailable."
+      ],
+      "passes": false
+    }
+  ]
+}
