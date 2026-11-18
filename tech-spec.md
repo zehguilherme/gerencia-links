@@ -6,7 +6,7 @@ Este documento reúne as tecnologias e decisões de implementação da primeira 
 
 ### Stack e organização
 
-Os projetos serão criados nas pastas `frontend` e `backend`, na raiz do mesmo repositório Git. Ambos utilizarão TypeScript. O gerenciamento de dependências será feito com npm workspaces e um único lockfile na raiz.
+Os projetos serão criados nas pastas `frontend` e `backend`, na raiz do mesmo repositório Git. Ambos utilizarão TypeScript e serão projetos npm independentes, cada um com seu próprio `package.json`, `package-lock.json` e `node_modules/`. Não haverá manifesto npm nem instalação compartilhada na raiz.
 
 | Área | Tecnologia | Responsabilidade |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ Os projetos serão criados nas pastas `frontend` e `backend`, na raiz do mesmo r
 | Desenvolvimento do backend | `tsx` | Executar TypeScript durante o desenvolvimento; compilar com `tsc` para execução normal. |
 | Banco local | Docker Compose | Executar o PostgreSQL com volume persistente. |
 
-Usar versões estáveis compatíveis com essas versões principais e registrar as versões exatas no lockfile na criação dos projetos. As bibliotecas de autenticação serão executadas no backend, sem contratação de um serviço de autenticação. A aplicação será responsável pela implementação e manutenção de usuários e sessões.
+Usar versões estáveis compatíveis com essas versões principais e registrar as versões exatas no lockfile de cada projeto na criação. Instalar e executar dependências a partir da pasta do projeto correspondente. As bibliotecas de autenticação serão executadas no backend, sem contratação de um serviço de autenticação. A aplicação será responsável pela implementação e manutenção de usuários e sessões.
 
 ### Responsabilidades e comunicação
 

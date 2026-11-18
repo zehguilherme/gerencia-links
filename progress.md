@@ -3,12 +3,16 @@
 ## Current State
 
 **Last Updated:** 2026-11-17
-**Active Feature:** None — application implementation has not started.
+**Active Feature:** None — `ui-000` is complete; database modeling is next.
 
 ## What's Done
 
 - [x] Product and technical requirements are documented in `spec.md` and `tech-spec.md`.
 - [x] Harness tracks the initial API and UI scope in `feature_list.json`.
+- [x] Next.js App Router scaffold created in `frontend/` as an independent npm project with local dependencies and lockfile.
+- [x] Home page renders only the `Gerencia Links` heading.
+- [x] Frontend lint, typecheck, production build, and browser checks passed for `ui-000`.
+- [x] Removed the generated nested `frontend/frontend/.next` cache and run frontend checks from `frontend/` so it is not recreated.
 
 ## What's In Progress
 
@@ -26,5 +30,5 @@
 
 ## Verification Evidence
 
-- Harness baseline: run `./init.sh`.
-- Application behavior: not yet verifiable; all features remain `not_started`.
+- `./init.sh` passed via Git Bash: harness validation, ESLint, `tsc --noEmit`, and Next.js production build.
+- Playwright at `http://localhost:3000/` showed the level-one heading `Gerencia Links`; there were no console errors or warnings.

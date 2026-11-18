@@ -1,13 +1,13 @@
 # Project Instructions
 
-This repository currently contains product and technical specifications; application code has not been scaffolded yet. Treat `spec.md` and `tech-spec.md` as the source of truth until implementation begins.
+This repository contains product and technical specifications plus the initial frontend scaffold. Treat `spec.md` and `tech-spec.md` as the source of truth for application behavior.
 
 ## Startup Workflow
 
 1. Read `progress.md` and `feature_list.json` to identify the active work and verified state.
 2. Read `spec.md` for product behavior and `tech-spec.md` for implementation constraints relevant to the task.
-3. When application modules exist, read the module document beside the code before editing it. The module index below is intentionally empty until code is added.
-4. Run `./init.sh`. At the planning stage it checks harness state; add actual frontend and backend checks when those projects are scaffolded.
+3. When application modules exist, read the module document beside the code before editing it.
+4. Run `./init.sh` for the harness, frontend, and backend checks currently configured.
 
 ## Working Rules
 
@@ -19,7 +19,9 @@ This repository currently contains product and technical specifications; applica
 
 ## Module Index
 
-No application modules are present yet. When code is scaffolded, add one `<module-name>.md` beside each detected module and list its path, document, and verification command here.
+| Module path | Document | Verification command |
+| --- | --- | --- |
+| `frontend/` | [`frontend/frontend.md`](frontend/frontend.md) | `cd frontend && npm run lint && npm run typecheck && npm run build` |
 
 ## Definition of Done
 
@@ -27,7 +29,7 @@ A feature is complete only when its acceptance criteria are implemented, the app
 
 ## Verification
 
-Run `./init.sh` for the current harness baseline. Once `frontend/` and `backend/` exist, replace or extend this baseline with their real lint, typecheck, test, and build commands.
+Run `./init.sh` for the harness baseline and configured frontend checks. Add backend checks when `backend/` is scaffolded.
 
 ## Instruction Language
 

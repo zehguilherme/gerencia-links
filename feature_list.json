@@ -15,6 +15,20 @@
   },
   "features": [
     {
+      "id": "ui-000",
+      "type": "ui",
+      "area": "scaffold",
+      "category": "functional",
+      "description": "The frontend is an independent Next.js App Router npm project whose home page renders the Gerencia Links heading.",
+      "steps": [
+        "Install npm dependencies from frontend/ and verify its node_modules is local to that project.",
+        "Run frontend lint, typecheck, and production build checks.",
+        "Open the root route and verify its h1 reads Gerencia Links."
+      ],
+      "passes": true,
+      "evidence": "Frontend-local npm install completed with frontend/node_modules and frontend/package-lock.json; repository-root node_modules is absent. ./init.sh passed harness validation, ESLint, tsc --noEmit, and next build; Playwright snapshot of http://localhost:3000/ showed heading 'Gerencia Links' at level 1, with no console errors or warnings."
+    },
+    {
       "id": "api-001",
       "type": "api",
       "area": "auth",
