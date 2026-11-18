@@ -3,24 +3,29 @@
 ## Current Objective
 
 - Goal: Implement the URL-shortening application defined by `spec.md` and `tech-spec.md`.
-- Active feature: None; select one feature from `feature_list.json` when implementation begins.
+- Active feature: None; `ui-000` is complete. Start `data-001` before backend work.
 
 ## Completed
 
 - Product and technical specifications are present.
 - Initial API and UI acceptance scope is recorded in `feature_list.json`.
+- Minimal Next.js 16 App Router frontend is an independent npm project under `frontend/`, with its own lockfile and dependencies.
+- Home page contains only the `Gerencia Links` heading; `ui-000` records passing verification evidence.
+- `init.sh` runs the frontend lint, typecheck, and production build checks.
+- Removed the nested generated `.next` cache; `init.sh` now runs commands from `frontend/` and does not recreate it.
 
 ## Verification Evidence
 
 | Check | Command | Result |
 |---|---|---|
-| Harness baseline | `./init.sh` | Not run in this session |
-| Application checks | Not configured | Application code does not exist yet |
+| Frontend checks | `./init.sh` via Git Bash | Passed: harness, ESLint, `tsc --noEmit`, Next.js production build |
+| Home page | Playwright at `http://localhost:3000/` | Passed: level-one heading `Gerencia Links`; no console errors or warnings |
 
 ## Blockers / Risks
 
-- Scaffold frontend and backend before adding real lint, typecheck, test, and build commands.
-- Add module docs and module verification entries as code modules appear.
+- Model the database before scaffolding the backend, per `tech-spec.md`.
+- Add tests when frontend interactions are introduced; the current shell has no interactions.
+- Add backend module docs and verification entries when backend code is scaffolded.
 
 ## Next Session Startup
 
